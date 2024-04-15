@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -84,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Row(children: const [
+        title: const Row(children: [
           Icon(Icons.create),
           Text("初めてのタイトル"),
         ]),
@@ -139,11 +140,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 '$_counter',
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
+              const Icon(FontAwesomeIcons.gift,
+                  color: Colors.green, size: 50.0),
             ],
           ),
         ),
-        if (_counter % 2 == 0)
-          const Text('偶数です', style: TextStyle(fontSize: 20, color: Colors.red)),
       ]),
       // body: Center(
       //   // Center is a layout widget. It takes a single child and positions it
