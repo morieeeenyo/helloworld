@@ -3,6 +3,10 @@
 <plist version="1.0">
 <dict>
 	<!-- dictタグ内の追記する部分のみ抜粋-->
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>ロケーション情報を利用する理由を記載</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>ロケーション情報を利用する理由を記載</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>フォトライブラリを利用する理由を記載</string>
 	<key>NSCameraUsageDescription</key>
