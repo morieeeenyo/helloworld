@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:video_player/video_player.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,6 +30,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  VideoPlayerController? _controller;
   XFile? _image;
   final imagePicker = ImagePicker();
 
@@ -50,6 +52,33 @@ class _MyHomePageState extends State<MyHomePage> {
         _image = XFile(pickedFile.path);
       }
     });
+  }
+
+  // カメラから動画を取得するメソッド
+  Future getVideoFromCamera() async {
+    XFile? pickedFile = await imagePicker.pickVideo(source: ImageSource.camera);
+    if (pickedFile != null) {
+      _controller = VideoPlayerController.file(File(pickedFile.path));
+      _controller!.initialize().then((_) {
+        setState(() {
+          _controller!.play();
+        });
+      });
+    }
+  }
+
+  // ギャラリーから動画を取得するメソッド
+  Future getVideoFromGarally() async {
+    XFile? pickedFile =
+        await imagePicker.pickVideo(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      _controller = VideoPlayerController.file(File(pickedFile.path));
+      _controller!.initialize().then((_) {
+        setState(() {
+          _controller!.play();
+        });
+      });
+    }
   }
 
   @override
